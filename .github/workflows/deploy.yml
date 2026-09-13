@@ -1,21 +1,22 @@
 name: Deploy to GitHub Pages
 
+# Publishes the site to the gh-pages branch, which GitHub Pages serves.
+# The same script works locally: npm run deploy
+
 on:
   push:
     branches: [main]
   workflow_dispatch:
 
 permissions:
-  contents: read
-  pages: write
-  id-token: write
+  contents: write
 
 concurrency:
   group: pages
   cancel-in-progress: false
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
@@ -27,29 +28,10 @@ jobs:
 
       - run: npm ci
 
-      - name: Build
-        run: npm run build
-        env:
-          # Project sites live at https://<user>.github.io/<repo>/
-          BASE_PATH: ${{ github.event.repository.name }}
-
-      - name: Add SPA fallback
-        # GitHub Pages has no rewrites: serving the app as 404.html lets
-        # deep links such as /lessons/props load and hand off to React Router.
+      - name: Build and publish to gh-pages
         run: |
-          cp dist/index.html dist/404.html
-          touch dist/.nojekyll
-
-      - uses: actions/upload-pages-artifact@v5
-        with:
-          path: dist
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - id: deployment
-        uses: actions/deploy-pages@v5
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          npm run deploy
+        env:
+          DEPLOY_REMOTE: https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git

@@ -32,12 +32,20 @@ npm run lint
 
 Live at **https://thothcher.github.io/Learn-React/**.
 
-Every push to `main` runs [.github/workflows/deploy.yml](.github/workflows/deploy.yml), which does four things:
+GitHub Pages serves the `gh-pages` branch. To publish the current code, run:
 
-1. Installs dependencies and builds with `BASE_PATH=Learn-React`, so asset URLs and React Router's `basename` include the repository name.
-2. Copies `index.html` to `404.html`. GitHub Pages has no URL rewrites, so a deep link such as `/Learn-React/lessons/props` would otherwise return a 404.
-3. Uploads `dist/` as a Pages artifact.
-4. Publishes it with `actions/deploy-pages`.
+```bash
+npm run deploy
+```
+
+[scripts/deploy-gh-pages.mjs](scripts/deploy-gh-pages.mjs) does four things:
+
+1. Builds with `BASE_PATH=<repository name>`, so asset URLs and React Router's `basename` start with `/Learn-React/`.
+2. Copies `index.html` to `404.html`. GitHub Pages has no URL rewrites, so without it a deep link such as `/Learn-React/lessons/props` would return a 404 when reloaded.
+3. Adds `.nojekyll`, so Pages serves the files exactly as built.
+4. Force-pushes the contents of `dist/` to the `gh-pages` branch. GitHub publishes it within a minute or two.
+
+[.github/workflows/deploy.yml](.github/workflows/deploy.yml) runs the same script on every push to `main`, so deployment becomes automatic whenever GitHub Actions can run on the account.
 
 To try the production build under the same path locally:
 
