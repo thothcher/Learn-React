@@ -1,0 +1,121 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.label {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-3);
+}
+
+.question {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--text);
+}
+
+.code {
+  font-size: 13px;
+}
+
+.options {
+  display: grid;
+  gap: 8px;
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  min-height: 52px;
+  padding: 10px 14px;
+  border: 0;
+  border-radius: 12px;
+  background: var(--bg);
+  text-align: left;
+  font-size: 15.5px;
+  transition:
+    background-color 0.15s ease,
+    color 0.15s ease,
+    transform 0.15s ease;
+}
+
+.option:not(:disabled):hover {
+  background: var(--primary-soft);
+}
+
+.option:not(:disabled):active {
+  transform: scale(0.995);
+}
+
+.option:disabled {
+  cursor: default;
+}
+
+.letter {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 9px;
+  background: var(--surface-2);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-2);
+  flex-shrink: 0;
+}
+
+.optionText {
+  min-width: 0;
+}
+
+.option[data-state='correct'] {
+  background: var(--success-soft);
+  color: var(--text);
+}
+
+.option[data-state='correct'] .letter {
+  background: var(--success);
+  color: var(--bg);
+}
+
+.option[data-state='wrong'] {
+  background: var(--danger-soft);
+}
+
+.option[data-state='wrong'] .letter {
+  background: var(--danger);
+  color: var(--bg);
+}
+
+.option[data-state='muted'] {
+  color: var(--text-3);
+}
+
+.feedback {
+  padding: 14px 16px;
+  border-radius: 12px;
+  font-size: 15px;
+  animation: rise 0.3s var(--ease) both;
+}
+
+.feedback[data-correct='true'] {
+  background: var(--success-soft);
+}
+
+.feedback[data-correct='true'] strong {
+  color: var(--success);
+}
+
+.feedback[data-correct='false'] {
+  background: var(--danger-soft);
+}
+
+.feedback[data-correct='false'] strong {
+  color: var(--danger);
+}

@@ -1,0 +1,153 @@
+.exercise {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  padding: 28px;
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+}
+
+.compact {
+  padding: 0;
+  background: transparent;
+}
+
+.head {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.icon {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: var(--primary-soft);
+  color: var(--primary);
+  flex-shrink: 0;
+}
+
+.headText {
+  flex: 1;
+  min-width: 0;
+}
+
+.kicker {
+  font-size: 13px;
+  color: var(--text-3);
+}
+
+.title {
+  font-size: 20px;
+}
+
+.task {
+  font-size: 16.5px;
+}
+
+.subhead {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-3);
+}
+
+.subhead span {
+  font-family: var(--font-mono);
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+.requirements {
+  display: grid;
+  gap: 6px;
+  list-style: none;
+}
+
+.requirement {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  width: 100%;
+  padding: 10px 12px;
+  border: 0;
+  border-radius: 10px;
+  background: var(--bg);
+  text-align: left;
+  font-size: 15px;
+  transition: background-color 0.15s ease;
+}
+
+.compact .requirement {
+  background: var(--surface);
+}
+
+.box {
+  display: grid;
+  place-items: center;
+  width: 20px;
+  height: 20px;
+  margin-top: 2px;
+  border-radius: 6px;
+  background: var(--surface-3);
+  color: var(--primary-contrast);
+  flex-shrink: 0;
+  transition: background-color 0.15s ease;
+}
+
+.requirement[data-checked='true'] {
+  color: var(--text-2);
+}
+
+.requirement[data-checked='true'] .box {
+  background: var(--success);
+}
+
+.hints {
+  display: grid;
+  gap: 8px;
+  list-style: none;
+}
+
+.hint {
+  display: flex;
+  gap: 10px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  background: var(--warning-soft);
+  font-size: 15px;
+  animation: rise 0.3s var(--ease) both;
+}
+
+.hint svg {
+  margin-top: 4px;
+  color: var(--warning);
+  flex-shrink: 0;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.solution {
+  animation: rise 0.3s var(--ease) both;
+}
+
+@media (max-width: 640px) {
+  .exercise {
+    padding: 20px;
+  }
+
+  .compact {
+    padding: 0;
+  }
+}

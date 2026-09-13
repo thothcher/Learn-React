@@ -1,0 +1,75 @@
+.block {
+  margin: 0;
+  min-width: 0;
+  overflow: hidden;
+  border-radius: var(--radius);
+  background: var(--code-bg);
+  color: #e2e6ee;
+}
+
+.bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 7px 8px 7px 16px;
+  background: var(--code-bar);
+  color: #9aa3b5;
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+}
+
+.label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.copy {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 28px;
+  padding: 0 10px;
+  border: 0;
+  border-radius: 7px;
+  background: transparent;
+  color: #9aa3b5;
+  font-family: var(--font-sans);
+  font-size: 12px;
+  transition:
+    background-color 0.15s ease,
+    color 0.15s ease;
+}
+
+.copy:hover {
+  background: rgb(255 255 255 / 0.06);
+  color: #e2e6ee;
+}
+
+.pre {
+  margin: 0;
+  padding: 16px 18px 18px;
+  overflow-x: auto;
+  font-size: 13.5px;
+  line-height: 1.7;
+  tab-size: 2;
+  scrollbar-width: thin;
+  scrollbar-color: #3a404c transparent;
+}
+
+.preBare {
+  padding: 14px 16px;
+  font-size: 13px;
+}
+
+@media (max-width: 640px) {
+  .pre {
+    font-size: 12.5px;
+    padding: 14px;
+  }
+}

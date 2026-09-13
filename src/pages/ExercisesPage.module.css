@@ -1,0 +1,124 @@
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+
+.count {
+  margin-left: auto;
+  font-size: 14px;
+  color: var(--text-3);
+}
+
+.list {
+  display: grid;
+  gap: 8px;
+  margin-top: 28px;
+  list-style: none;
+}
+
+.item {
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+}
+
+.toggle {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  padding: 16px 20px;
+  border: 0;
+  border-radius: inherit;
+  background: transparent;
+  text-align: left;
+}
+
+.week {
+  width: 64px;
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  color: var(--primary);
+  flex-shrink: 0;
+}
+
+.titles {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.title {
+  font-size: 16.5px;
+  font-weight: 500;
+}
+
+.lesson {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: 13.5px;
+  color: var(--text-3);
+}
+
+.chevron {
+  color: var(--text-3);
+  transition: transform 0.2s var(--ease);
+}
+
+.item[data-open='true'] .chevron {
+  transform: rotate(180deg);
+}
+
+.body {
+  display: grid;
+  gap: 20px;
+  padding: 4px 20px 24px 100px;
+  animation: rise 0.3s var(--ease) both;
+}
+
+.body :global(.btn-soft),
+.body :global(.btn:not(.btn-soft)) {
+  background-color: var(--bg);
+}
+
+.lessonLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  justify-self: start;
+  font-size: 14.5px;
+  font-weight: 500;
+  color: var(--primary);
+}
+
+@media (max-width: 720px) {
+  .toggle {
+    flex-wrap: wrap;
+    gap: 8px 12px;
+    padding: 16px;
+  }
+
+  .week {
+    width: auto;
+  }
+
+  .titles {
+    order: 3;
+    flex-basis: 100%;
+  }
+
+  .chevron {
+    margin-left: auto;
+  }
+
+  .body {
+    padding: 4px 16px 20px;
+  }
+
+  .count {
+    margin-left: 0;
+  }
+}

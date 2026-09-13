@@ -1,0 +1,135 @@
+.header {
+  padding-block: 40px 28px;
+  animation: rise 0.5s var(--ease) both;
+}
+
+.back {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  color: var(--text-3);
+  transition: color 0.15s ease;
+}
+
+.back:hover {
+  color: var(--primary);
+}
+
+.titleRow {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-top: 20px;
+}
+
+.icon {
+  display: grid;
+  place-items: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 16px;
+  background: var(--primary-soft);
+  color: var(--primary);
+  flex-shrink: 0;
+}
+
+.title {
+  font-size: clamp(30px, 4.5vw, 42px);
+  letter-spacing: -0.035em;
+}
+
+.description {
+  margin-top: 4px;
+  color: var(--text-2);
+}
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-left: auto;
+}
+
+.stat {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 36px;
+  padding: 0 14px;
+  border-radius: 10px;
+  background: var(--surface);
+  font-size: 14px;
+  color: var(--text-2);
+}
+
+.stat strong {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  color: var(--text);
+}
+
+.result {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+  margin-top: 20px;
+  padding: 20px 24px;
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  animation: rise 0.35s var(--ease) both;
+}
+
+.resultIcon {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: var(--success-soft);
+  color: var(--success);
+  flex-shrink: 0;
+}
+
+.resultText {
+  flex: 1;
+  min-width: 200px;
+}
+
+.resultTitle {
+  font-size: 19px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.resultSub {
+  color: var(--text-2);
+  font-size: 15px;
+}
+
+.resultActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+@media (max-width: 720px) {
+  .stats {
+    margin-left: 0;
+  }
+
+  .icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 13px;
+  }
+}

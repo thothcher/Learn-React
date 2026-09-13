@@ -1,0 +1,33 @@
+.header {
+  padding-block: 64px 36px;
+  animation: rise 0.5s var(--ease) both;
+}
+
+.title {
+  margin-top: 14px;
+  max-width: 820px;
+  font-size: clamp(34px, 5vw, 52px);
+  letter-spacing: -0.035em;
+}
+
+.description {
+  margin-top: 16px;
+  max-width: 640px;
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--text-2);
+}
+
+.extra {
+  margin-top: 28px;
+}
+
+@media (max-width: 640px) {
+  .header {
+    padding-block: 40px 24px;
+  }
+
+  .description {
+    font-size: 16px;
+  }
+}

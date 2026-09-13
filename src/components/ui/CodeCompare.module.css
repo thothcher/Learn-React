@@ -1,0 +1,41 @@
+.compare {
+  display: grid;
+  gap: 12px;
+}
+
+.tabs {
+  display: none;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  align-items: start;
+}
+
+.angular {
+  color: #ff7a93;
+}
+
+.react {
+  color: #6ad2ec;
+}
+
+.next {
+  color: #e2e6ee;
+}
+
+@media (max-width: 960px) {
+  .tabs {
+    display: block;
+  }
+
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .pane[data-active='false'] {
+    display: none;
+  }
+}

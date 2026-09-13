@@ -1,0 +1,119 @@
+/*
+  Design tokens. The palette follows react.dev: deep blue-teal for actions,
+  the React cyan for highlights, and cool neutrals for surfaces.
+  Cards are separated by tone, not by borders or heavy shadows.
+*/
+:root {
+  color-scheme: light;
+
+  --font-sans: 'Geist Variable', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: 'Geist Mono Variable', ui-monospace, 'Cascadia Code', Consolas, monospace;
+
+  --bg: #ffffff;
+  --bg-soft: #f6f7f9;
+  --surface: #f4f6f8;
+  --surface-2: #ebeef2;
+  --surface-3: #dfe3e9;
+
+  --text: #23272f;
+  --text-2: #56607a;
+  --text-3: #8790a3;
+
+  --primary: #087ea4;
+  --primary-strong: #066a8b;
+  --primary-soft: #e3f4fa;
+  --primary-contrast: #ffffff;
+  --react: #58c4dc;
+
+  --angular: #d42a55;
+  --angular-soft: #fcebf0;
+  --next: #16181d;
+  --next-contrast: #ffffff;
+
+  --success: #16855a;
+  --success-soft: #e2f4ea;
+  --danger: #c7383f;
+  --danger-soft: #fbe9ea;
+  --warning: #9a6207;
+  --warning-soft: #fcf1dc;
+  --purple: #6848c9;
+  --purple-soft: #efebfb;
+
+  --code-bg: #1b1e25;
+  --code-bar: #22262e;
+
+  --radius-sm: 8px;
+  --radius: 12px;
+  --radius-lg: 18px;
+  --radius-xl: 24px;
+
+  --shadow-pop: 0 18px 48px -18px rgb(20 26 38 / 0.28);
+
+  --header-h: 64px;
+  --container: 1180px;
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    color-scheme: dark;
+    --bg: #16181d;
+    --bg-soft: #1a1d23;
+    --surface: #1f2229;
+    --surface-2: #272b33;
+    --surface-3: #333843;
+    --text: #f2f4f7;
+    --text-2: #a4adbf;
+    --text-3: #737d91;
+    --primary: #58c4dc;
+    --primary-strong: #86d6e8;
+    --primary-soft: rgb(88 196 220 / 0.12);
+    --primary-contrast: #0b1b20;
+    --angular: #ff6286;
+    --angular-soft: rgb(255 98 134 / 0.12);
+    --next: #f2f4f7;
+    --next-contrast: #16181d;
+    --success: #4cc38a;
+    --success-soft: rgb(76 195 138 / 0.13);
+    --danger: #ff7474;
+    --danger-soft: rgb(255 116 116 / 0.13);
+    --warning: #f0b453;
+    --warning-soft: rgb(240 180 83 / 0.13);
+    --purple: #a88bfa;
+    --purple-soft: rgb(168 139 250 / 0.13);
+    --code-bg: #0f1115;
+    --code-bar: #15181d;
+    --shadow-pop: 0 18px 48px -18px rgb(0 0 0 / 0.6);
+  }
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --bg: #16181d;
+  --bg-soft: #1a1d23;
+  --surface: #1f2229;
+  --surface-2: #272b33;
+  --surface-3: #333843;
+  --text: #f2f4f7;
+  --text-2: #a4adbf;
+  --text-3: #737d91;
+  --primary: #58c4dc;
+  --primary-strong: #86d6e8;
+  --primary-soft: rgb(88 196 220 / 0.12);
+  --primary-contrast: #0b1b20;
+  --angular: #ff6286;
+  --angular-soft: rgb(255 98 134 / 0.12);
+  --next: #f2f4f7;
+  --next-contrast: #16181d;
+  --success: #4cc38a;
+  --success-soft: rgb(76 195 138 / 0.13);
+  --danger: #ff7474;
+  --danger-soft: rgb(255 116 116 / 0.13);
+  --warning: #f0b453;
+  --warning-soft: rgb(240 180 83 / 0.13);
+  --purple: #a88bfa;
+  --purple-soft: rgb(168 139 250 / 0.13);
+  --code-bg: #0f1115;
+  --code-bar: #15181d;
+  --shadow-pop: 0 18px 48px -18px rgb(0 0 0 / 0.6);
+}

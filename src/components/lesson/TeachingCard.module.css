@@ -1,0 +1,166 @@
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  height: 100%;
+  padding: 26px;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  isolation: isolate;
+}
+
+.watermark {
+  position: absolute;
+  right: -56px;
+  bottom: -64px;
+  z-index: -1;
+  color: var(--primary);
+  opacity: 0.06;
+  pointer-events: none;
+}
+
+.card[data-track='next'] .watermark {
+  color: var(--text);
+  opacity: 0.04;
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-3);
+}
+
+.term {
+  font-size: 26px;
+  letter-spacing: -0.03em;
+}
+
+.body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.definition {
+  font-size: 16px;
+  color: var(--text);
+}
+
+.analogy {
+  display: flex;
+  gap: 12px;
+  padding: 14px 16px;
+  border-radius: var(--radius);
+  background: var(--bg);
+  font-size: 15px;
+  color: var(--text-2);
+}
+
+.analogyIcon {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 9px;
+  background: var(--warning-soft);
+  color: var(--warning);
+  flex-shrink: 0;
+}
+
+.analogyLabel {
+  margin-bottom: 2px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--warning);
+}
+
+.remember {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin-top: auto;
+  font-size: 14.5px;
+  font-weight: 500;
+  color: var(--primary);
+}
+
+.remember svg {
+  margin-top: 3px;
+}
+
+.prompt {
+  font-size: 18px;
+  color: var(--text-3);
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* Presentation mode: big type for a projector. */
+.present {
+  gap: 28px;
+  padding: clamp(28px, 5vw, 64px);
+  border-radius: var(--radius-xl);
+}
+
+.present .watermark {
+  right: -40px;
+  bottom: -60px;
+  transform: scale(1.8);
+  transform-origin: bottom right;
+}
+
+.present .term {
+  font-size: clamp(40px, 7vw, 76px);
+  letter-spacing: -0.045em;
+}
+
+.present .definition {
+  max-width: 900px;
+  font-size: clamp(20px, 2.4vw, 28px);
+  line-height: 1.45;
+}
+
+.present .analogy {
+  max-width: 900px;
+  padding: 22px 24px;
+  font-size: clamp(17px, 2vw, 22px);
+  line-height: 1.5;
+}
+
+.present .analogyIcon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+}
+
+.present .remember {
+  font-size: clamp(17px, 2vw, 22px);
+}
+
+.present .prompt {
+  max-width: 760px;
+  font-size: clamp(20px, 2.6vw, 30px);
+  line-height: 1.4;
+}

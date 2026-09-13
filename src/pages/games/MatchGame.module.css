@@ -1,0 +1,204 @@
+.labels {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) clamp(56px, 14vw, 180px) minmax(0, 1fr);
+  margin-bottom: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-3);
+}
+
+.labels span:last-child {
+  grid-column: 3;
+}
+
+.board {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) clamp(56px, 14vw, 180px) minmax(0, 1fr);
+  padding: 20px;
+  border-radius: var(--radius-xl);
+  background: var(--surface);
+  touch-action: pan-y;
+  user-select: none;
+}
+
+.lines {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.connection path {
+  fill: none;
+  stroke: var(--primary);
+  stroke-width: 2.5;
+  stroke-linecap: round;
+}
+
+.connection circle {
+  fill: var(--primary);
+}
+
+.connection[data-state='correct'] path {
+  stroke: var(--success);
+}
+
+.connection[data-state='correct'] circle {
+  fill: var(--success);
+}
+
+.connection[data-state='wrong'] path {
+  stroke: var(--danger);
+  stroke-dasharray: 6 6;
+}
+
+.connection[data-state='wrong'] circle {
+  fill: var(--danger);
+}
+
+.connection path {
+  animation: draw 0.35s var(--ease) both;
+  stroke-dashoffset: 0;
+}
+
+.dragLine {
+  fill: none;
+  stroke: var(--primary);
+  stroke-width: 2.5;
+  stroke-dasharray: 4 6;
+  stroke-linecap: round;
+  opacity: 0.8;
+}
+
+.column {
+  display: grid;
+  gap: 10px;
+  list-style: none;
+}
+
+.gutter {
+  min-height: 100%;
+}
+
+.item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  min-height: 58px;
+  padding: 10px 16px;
+  border: 0;
+  border-radius: 12px;
+  background: var(--bg);
+  text-align: left;
+  font-size: 15px;
+  line-height: 1.35;
+  touch-action: none;
+  transition:
+    background-color 0.15s ease,
+    color 0.15s ease;
+}
+
+.rightItem {
+  touch-action: manipulation;
+}
+
+.item:hover {
+  background: var(--primary-soft);
+}
+
+.mono .text {
+  font-family: var(--font-mono);
+  font-size: 13.5px;
+}
+
+.text {
+  flex: 1;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--surface-3);
+  flex-shrink: 0;
+  transition: background-color 0.15s ease;
+}
+
+.item[data-selected='true'] {
+  background: var(--primary-soft);
+  color: var(--primary);
+}
+
+.item[data-selected='true'] .dot,
+.item[data-linked='true'] .dot {
+  background: var(--primary);
+}
+
+.rightItem[data-target='true']:not([data-linked='true']) .dot {
+  background: var(--primary);
+  opacity: 0.45;
+}
+
+.item[data-state='correct'] {
+  background: var(--success-soft);
+}
+
+.item[data-state='wrong'] {
+  background: var(--danger-soft);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.help {
+  flex: 1;
+  min-width: 220px;
+  font-size: 14.5px;
+  color: var(--text-3);
+}
+
+.record {
+  margin-left: 10px;
+  vertical-align: middle;
+}
+
+@keyframes draw {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 640px) {
+  .board {
+    padding: 12px;
+  }
+
+  .item {
+    min-height: 64px;
+    gap: 8px;
+    padding: 8px 10px;
+    font-size: 13.5px;
+  }
+
+  .mono .text {
+    font-size: 12px;
+  }
+}
