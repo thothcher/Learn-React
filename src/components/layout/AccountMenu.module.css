@@ -1,0 +1,111 @@
+.placeholder {
+  width: 34px;
+  height: 34px;
+  margin-left: 4px;
+  border-radius: 50%;
+  background: var(--surface);
+}
+
+.login {
+  margin-left: 4px;
+}
+
+.account {
+  position: relative;
+  margin-left: 4px;
+}
+
+.trigger {
+  display: grid;
+  place-items: center;
+  padding: 2px;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+}
+
+.menu {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  z-index: 50;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 2px;
+  width: 260px;
+  padding: 8px;
+  border-radius: 16px;
+  background: var(--bg);
+  box-shadow: var(--shadow-pop);
+  animation: rise 0.18s var(--ease) both;
+}
+
+.menuHead {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 6px;
+  padding: 10px 10px 14px;
+  border-radius: 12px;
+  background: var(--surface);
+}
+
+.menuIdentity {
+  min-width: 0;
+}
+
+.menuName,
+.menuEmail {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.menuName {
+  font-weight: 600;
+}
+
+.menuEmail {
+  font-size: 13px;
+  color: var(--text-3);
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 10px 12px;
+  border: 0;
+  border-radius: 10px;
+  background: transparent;
+  text-align: left;
+  font-size: 14.5px;
+  color: var(--text-2);
+  transition:
+    background-color 0.15s ease,
+    color 0.15s ease;
+}
+
+.item:hover {
+  background: var(--surface);
+  color: var(--text);
+}
+
+.menuError {
+  padding: 4px 12px 6px;
+  font-size: 13px;
+  line-height: 1.45;
+  color: var(--danger);
+}
+
+@media (max-width: 520px) {
+  .loginText {
+    display: none;
+  }
+
+  .login {
+    width: 34px;
+    padding: 0;
+  }
+}

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Outlet, ScrollRestoration } from 'react-router'
+import { AuthProvider } from '../auth/AuthProvider'
 import { CommandPalette } from './CommandPalette'
 import { Footer } from './Footer'
 import { Header } from './Header'
@@ -20,6 +21,7 @@ export function RootLayout() {
   }, [])
 
   return (
+    <AuthProvider>
     <div className={styles.shell}>
       <a href="#main" className={styles.skip}>
         Skip to content
@@ -32,5 +34,6 @@ export function RootLayout() {
       <CommandPalette open={searchOpen} onClose={() => setSearchOpen(false)} />
       <ScrollRestoration />
     </div>
+    </AuthProvider>
   )
 }

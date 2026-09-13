@@ -1,0 +1,170 @@
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.95fr);
+  align-items: center;
+  gap: 56px;
+  padding-block: 56px 16px;
+}
+
+.panel {
+  width: 100%;
+  max-width: 440px;
+  justify-self: center;
+  animation: rise 0.5s var(--ease) both;
+}
+
+.head h1 {
+  margin-top: 22px;
+  font-size: clamp(30px, 4vw, 38px);
+  letter-spacing: -0.035em;
+}
+
+.head p {
+  margin-top: 10px;
+  color: var(--text-2);
+}
+
+.head {
+  margin-bottom: 28px;
+}
+
+.form {
+  display: grid;
+  gap: 18px;
+}
+
+.submit {
+  width: 100%;
+  margin-top: 4px;
+}
+
+.checkbox {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  justify-self: start;
+  font-size: 14.5px;
+  color: var(--text-2);
+  cursor: pointer;
+}
+
+.checkbox input {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--primary);
+}
+
+.footer {
+  margin-top: 28px;
+  text-align: center;
+  font-size: 14.5px;
+  color: var(--text-2);
+}
+
+.footer a {
+  color: var(--primary);
+  font-weight: 500;
+}
+
+.status {
+  display: grid;
+  justify-items: start;
+  gap: 18px;
+}
+
+.statusIcon {
+  display: grid;
+  place-items: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 16px;
+  background: var(--primary-soft);
+  color: var(--primary);
+}
+
+.statusIcon[data-tone='success'] {
+  background: var(--success-soft);
+  color: var(--success);
+}
+
+.statusIcon[data-tone='error'] {
+  background: var(--danger-soft);
+  color: var(--danger);
+}
+
+.muted {
+  color: var(--text-2);
+}
+
+.devNote {
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: var(--surface);
+  font-size: 13px;
+  color: var(--text-3);
+}
+
+.aside {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 32px;
+  align-self: stretch;
+  min-height: 520px;
+  padding: 48px;
+  border-radius: var(--radius-xl);
+  background: var(--surface);
+}
+
+.asideTitle {
+  max-width: 380px;
+  font-size: 28px;
+  letter-spacing: -0.03em;
+}
+
+.benefits {
+  display: grid;
+  gap: 20px;
+  list-style: none;
+}
+
+.benefits li {
+  display: flex;
+  gap: 14px;
+}
+
+.benefits li > span:last-child {
+  display: grid;
+  gap: 2px;
+}
+
+.benefits strong {
+  font-weight: 600;
+}
+
+.benefits li > span:last-child > span {
+  font-size: 15px;
+  color: var(--text-2);
+}
+
+.benefitIcon {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: var(--bg);
+  color: var(--primary);
+  flex-shrink: 0;
+}
+
+@media (max-width: 900px) {
+  .layout {
+    grid-template-columns: minmax(0, 1fr);
+    padding-block: 32px 8px;
+  }
+
+  .aside {
+    display: none;
+  }
+}

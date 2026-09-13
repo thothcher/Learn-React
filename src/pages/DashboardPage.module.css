@@ -1,0 +1,12 @@
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.actions :global(.btn) {
+  max-width: 100%;
+  white-space: normal;
+  text-align: left;
+  line-height: 1.3;
+}

@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="Refract.Api/Refract.Api.csproj" />
+  <Project Path="Refract.Api.Tests/Refract.Api.Tests.csproj" />
+</Solution>

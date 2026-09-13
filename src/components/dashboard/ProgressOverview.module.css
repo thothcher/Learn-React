@@ -1,0 +1,285 @@
+.overview {
+  display: grid;
+  gap: 16px;
+}
+
+.tiles {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.tile {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 20px;
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+}
+
+.ringTile {
+  flex-direction: row;
+  align-items: center;
+  gap: 18px;
+}
+
+.ringValue {
+  font-size: 19px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.tileIcon {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  margin-bottom: 10px;
+  border-radius: 11px;
+  background: var(--bg);
+  color: var(--primary);
+}
+
+.flame {
+  color: var(--warning);
+}
+
+.tileValue {
+  font-size: 30px;
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+}
+
+.tileValue span {
+  margin-left: 2px;
+  font-size: 15px;
+  font-weight: 400;
+  letter-spacing: 0;
+  color: var(--text-3);
+}
+
+.tileLabel {
+  font-size: 14px;
+  color: var(--text-2);
+}
+
+.tileHint {
+  font-size: 13px;
+  color: var(--text-3);
+}
+
+.columns {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+  gap: 16px;
+  align-items: start;
+}
+
+.side {
+  display: grid;
+  gap: 16px;
+}
+
+.panel {
+  padding: 24px;
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+}
+
+.panelTitle {
+  margin-bottom: 18px;
+  font-size: 18px;
+}
+
+.weeks {
+  display: grid;
+  gap: 6px;
+  list-style: none;
+}
+
+.week {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: var(--bg);
+}
+
+.weekNumber {
+  width: 30px;
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  color: var(--primary);
+}
+
+.weekBody {
+  flex: 1;
+  min-width: 0;
+}
+
+.weekTop {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 7px;
+  font-size: 14.5px;
+}
+
+.weekTitle {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-weight: 500;
+}
+
+.weekCount {
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  color: var(--text-3);
+}
+
+.bar {
+  height: 5px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: var(--surface-2);
+}
+
+.bar span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--primary);
+  transition: width 0.5s var(--ease);
+}
+
+.bar[data-complete='true'] span {
+  background: var(--success);
+}
+
+.projectMark {
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 8px;
+  background: var(--surface-2);
+  color: var(--text-3);
+  flex-shrink: 0;
+}
+
+.projectMark[data-done='true'] {
+  background: var(--success);
+  color: var(--bg);
+}
+
+.empty {
+  font-size: 14.5px;
+  color: var(--text-3);
+}
+
+.empty a {
+  color: var(--primary);
+  font-weight: 500;
+}
+
+.activity {
+  display: grid;
+  gap: 14px;
+  list-style: none;
+}
+
+.activity li {
+  display: flex;
+  gap: 12px;
+}
+
+.activityIcon {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 9px;
+  background: var(--primary-soft);
+  color: var(--primary);
+  flex-shrink: 0;
+}
+
+.activityIcon[data-kind='project'] {
+  background: var(--warning-soft);
+  color: var(--warning);
+}
+
+.activityIcon[data-kind='score'] {
+  background: var(--success-soft);
+  color: var(--success);
+}
+
+.activityText {
+  display: grid;
+  min-width: 0;
+  line-height: 1.4;
+}
+
+.activityTitle {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: 14.5px;
+  font-weight: 500;
+}
+
+.activityDetail {
+  font-size: 13px;
+  color: var(--text-3);
+}
+
+.scores {
+  display: grid;
+  gap: 4px;
+  list-style: none;
+}
+
+.scores li {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 9px 12px;
+  border-radius: 10px;
+  background: var(--bg);
+  font-size: 14.5px;
+}
+
+.scores strong {
+  font-family: var(--font-mono);
+  font-size: 13.5px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+@media (max-width: 1100px) {
+  .tiles {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .ringTile {
+    grid-column: 1 / -1;
+  }
+
+  .columns {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 520px) {
+  .panel {
+    padding: 18px;
+  }
+
+  .tile {
+    padding: 16px;
+  }
+}

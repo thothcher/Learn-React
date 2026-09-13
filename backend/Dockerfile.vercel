@@ -1,0 +1,15 @@
+# Vercel builds this image for the "api" service in vercel.json.
+# Stage 1 compiles with the .NET SDK; stage 2 ships only the published app on a small runtime image.
+FROM mcr.microsoft.com/dotnet/sdk:10.0 AS build
+WORKDIR /src
+COPY Refract.Api/Refract.Api.csproj Refract.Api/
+RUN dotnet restore Refract.Api/Refract.Api.csproj
+COPY Refract.Api/ Refract.Api/
+RUN dotnet publish Refract.Api/Refract.Api.csproj -c Release --no-restore -o /app/publish /p:UseAppHost=false
+
+FROM mcr.microsoft.com/dotnet/aspnet:10.0-noble-chiseled
+WORKDIR /app
+COPY --from=build /app/publish ./
+ENV PORT=80 \
+    DOTNET_EnableDiagnostics=0
+ENTRYPOINT ["dotnet", "Refract.Api.dll"]

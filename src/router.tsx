@@ -1,5 +1,14 @@
-import { createBrowserRouter } from 'react-router'
+import { createBrowserRouter, type RouteObject } from 'react-router'
+import { RequireAuth } from './components/auth/RequireAuth'
 import { RootLayout } from './components/layout/RootLayout'
+import { accountsEnabled } from './config/features'
+import { CheckEmailPage } from './pages/auth/CheckEmailPage'
+import { ConfirmEmailPage } from './pages/auth/ConfirmEmailPage'
+import { ForgotPasswordPage } from './pages/auth/ForgotPasswordPage'
+import { LoginPage } from './pages/auth/LoginPage'
+import { RegisterPage } from './pages/auth/RegisterPage'
+import { ResetPasswordPage } from './pages/auth/ResetPasswordPage'
+import { DashboardPage } from './pages/DashboardPage'
 import { CheatSheetPage } from './pages/CheatSheetPage'
 import { ContactPage } from './pages/ContactPage'
 import { ExercisesPage } from './pages/ExercisesPage'
@@ -14,6 +23,23 @@ import { NotFoundPage, RouteErrorPage } from './pages/NotFoundPage'
 import { PracticePage } from './pages/PracticePage'
 import { RoadmapPage } from './pages/RoadmapPage'
 import { TeachPage } from './pages/TeachPage'
+import { TeacherPage } from './pages/teacher/TeacherPage'
+import { TeacherStudentPage } from './pages/teacher/TeacherStudentPage'
+
+// Account pages need the C# API, so builds without it (GitHub Pages) leave them out.
+const accountRoutes: RouteObject[] = accountsEnabled
+  ? [
+      { path: 'login', Component: LoginPage },
+      { path: 'register', Component: RegisterPage },
+      { path: 'check-email', Component: CheckEmailPage },
+      { path: 'confirm-email', Component: ConfirmEmailPage },
+      { path: 'forgot-password', Component: ForgotPasswordPage },
+      { path: 'reset-password', Component: ResetPasswordPage },
+      { path: 'dashboard', element: <RequireAuth><DashboardPage /></RequireAuth> },
+      { path: 'teacher', element: <RequireAuth teacher><TeacherPage /></RequireAuth> },
+      { path: 'teacher/students/:id', element: <RequireAuth teacher><TeacherStudentPage /></RequireAuth> },
+    ]
+  : []
 
 // The same idea as Angular's Routes array: a tree of paths and components.
 export const router = createBrowserRouter([
@@ -35,6 +61,7 @@ export const router = createBrowserRouter([
       { path: 'teach', Component: TeachPage },
       { path: 'cheatsheet', Component: CheatSheetPage },
       { path: 'contact', Component: ContactPage },
+      ...accountRoutes,
       { path: '*', Component: NotFoundPage },
     ],
   },
