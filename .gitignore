@@ -22,3 +22,14 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# .NET backend
+bin/
+obj/
+TestResults/
+*.db
+*.db-shm
+*.db-wal
+
+# Vercel
+.vercel
