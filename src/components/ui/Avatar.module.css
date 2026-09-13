@@ -1,0 +1,34 @@
+.avatar {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  border-radius: 50%;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 1;
+}
+
+.avatar[data-tone='primary'] {
+  background: var(--primary-soft);
+  color: var(--primary);
+}
+
+.avatar[data-tone='purple'] {
+  background: var(--purple-soft);
+  color: var(--purple);
+}
+
+.avatar[data-tone='warning'] {
+  background: var(--warning-soft);
+  color: var(--warning);
+}
+
+.avatar[data-tone='success'] {
+  background: var(--success-soft);
+  color: var(--success);
+}
+
+.avatar[data-tone='angular'] {
+  background: var(--angular-soft);
+  color: var(--angular);
+}

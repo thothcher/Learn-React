@@ -1,0 +1,65 @@
+.alert {
+  display: flex;
+  gap: 12px;
+  padding: 14px 16px;
+  border-radius: 12px;
+  font-size: 14.5px;
+  line-height: 1.55;
+  animation: rise 0.3s var(--ease) both;
+}
+
+.alert > svg {
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.body {
+  display: grid;
+  gap: 4px;
+  min-width: 0;
+}
+
+.body a,
+.body button {
+  justify-self: start;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--primary);
+  font-weight: 500;
+  font-size: inherit;
+  cursor: pointer;
+}
+
+.body button:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+.title {
+  font-weight: 600;
+}
+
+.error {
+  background: var(--danger-soft);
+}
+
+.error > svg {
+  color: var(--danger);
+}
+
+.success {
+  background: var(--success-soft);
+}
+
+.success > svg {
+  color: var(--success);
+}
+
+.info {
+  background: var(--primary-soft);
+}
+
+.info > svg {
+  color: var(--primary);
+}

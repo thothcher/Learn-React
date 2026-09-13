@@ -1,0 +1,95 @@
+.field {
+  display: grid;
+  gap: 8px;
+}
+
+.control {
+  display: grid;
+  gap: 8px;
+}
+
+.labelRow {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.label {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.hint {
+  font-size: 13.5px;
+  color: var(--text-3);
+}
+
+.hint a {
+  color: var(--primary);
+  font-weight: 500;
+}
+
+.control input {
+  width: 100%;
+  height: 48px;
+  padding: 0 14px;
+  border: 0;
+  border-radius: 12px;
+  outline: 2px solid transparent;
+  outline-offset: 0;
+  background: var(--surface);
+  font-size: 15.5px;
+  transition:
+    outline-color 0.15s ease,
+    background-color 0.15s ease;
+}
+
+.control input::placeholder {
+  color: var(--text-3);
+}
+
+.control input:focus {
+  outline-color: var(--primary);
+  background: var(--bg);
+}
+
+.control input[aria-invalid='true'] {
+  outline-color: var(--danger);
+}
+
+.error {
+  font-size: 13.5px;
+  color: var(--danger);
+}
+
+.password {
+  position: relative;
+  display: block;
+}
+
+.password input {
+  padding-right: 52px;
+}
+
+.toggle {
+  position: absolute;
+  top: 50%;
+  right: 6px;
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border: 0;
+  border-radius: 9px;
+  background: transparent;
+  color: var(--text-3);
+  transform: translateY(-50%);
+  transition:
+    background-color 0.15s ease,
+    color 0.15s ease;
+}
+
+.toggle:hover {
+  background: var(--surface-2);
+  color: var(--text);
+}

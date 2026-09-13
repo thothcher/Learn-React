@@ -121,7 +121,10 @@
 
 .mobileLink {
   padding: 14px 16px;
+  border: 0;
   border-radius: 12px;
+  background: transparent;
+  text-align: left;
   font-size: 18px;
   font-weight: 500;
   color: var(--text-2);
@@ -157,4 +160,10 @@
   .search kbd {
     display: none;
   }
+}
+
+.mobileError {
+  padding: 4px 16px;
+  font-size: 14px;
+  color: var(--danger);
 }
