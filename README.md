@@ -28,6 +28,26 @@ npm run preview   # serve the production build
 npm run lint
 ```
 
+## Deploy
+
+Live at **https://thothcher.github.io/Learn-React/**.
+
+Every push to `main` runs [.github/workflows/deploy.yml](.github/workflows/deploy.yml), which does four things:
+
+1. Installs dependencies and builds with `BASE_PATH=Learn-React`, so asset URLs and React Router's `basename` include the repository name.
+2. Copies `index.html` to `404.html`. GitHub Pages has no URL rewrites, so a deep link such as `/Learn-React/lessons/props` would otherwise return a 404.
+3. Uploads `dist/` as a Pages artifact.
+4. Publishes it with `actions/deploy-pages`.
+
+To try the production build under the same path locally:
+
+```bash
+BASE_PATH=Learn-React npm run build && BASE_PATH=Learn-React npm run preview
+# then open http://localhost:4173/Learn-React/
+```
+
+To host at the root of a domain (Vercel, Netlify, or a custom domain), build without `BASE_PATH`.
+
 ## Make it yours
 
 | What | Where |

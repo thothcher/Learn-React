@@ -38,4 +38,7 @@ export const router = createBrowserRouter([
       { path: '*', Component: NotFoundPage },
     ],
   },
-])
+], {
+  // Matches Vite's base, e.g. "/Learn-React" when hosted on GitHub Pages.
+  basename: import.meta.env.BASE_URL.replace(/\/$/, '') || '/',
+})

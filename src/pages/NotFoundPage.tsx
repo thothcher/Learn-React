@@ -37,7 +37,7 @@ export function RouteErrorPage() {
       </span>
       <h1 className={styles.title}>An error boundary caught this</h1>
       <p className={styles.text}>{message}</p>
-      <a href="/" className="btn btn-primary">
+      <a href={import.meta.env.BASE_URL} className="btn btn-primary">
         Reload the app
       </a>
     </section>
